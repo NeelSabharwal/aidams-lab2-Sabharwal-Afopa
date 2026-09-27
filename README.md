@@ -1,60 +1,66 @@
 # aidams-lab2-Sabharwal-Afopa
 
-This repository contains our completed Lab 2 notebook using the GIST Steel plant-level dataset.
+This repository contains the completed Lab 2 notebook using the GIST Steel plant-level dataset.
 
 ## How to Run
 
 The notebook was developed and tested using **Python 3.13**. Python 3.13 should be used to avoid compatibility issues with the required libraries.
 
-### 1. Dataset
+### 1. Dataset Setup
 
-Make sure the GIST Steel dataset is located in the following path relative to the notebook:
+The dataset is not included in this repository.
 
-`GIST Steel Dataset/Plant-level_data_Global_Iron_and_Steel_Tracker_June_2026_V1.xlsx`
+Download the following GIST Steel dataset file:
 
-### 2. Open the Notebook
+`Plant-level_data_Global_Iron_and_Steel_Tracker_June_2026_V1.xlsx`
 
-Open `lab_2.ipynb` in VS Code or Jupyter and select a **Python 3.13** kernel.
+Place the downloaded Excel file in the **same folder as `lab_2.ipynb`**.
+
+The folder should therefore look like:
+
+```text
+project/
+├── lab_2.ipynb
+├── README.md
+└── Plant-level_data_Global_Iron_and_Steel_Tracker_June_2026_V1.xlsx
+```
+
+No changes to the file path in the notebook should be required as long as the dataset keeps this filename and is placed in the same folder as the notebook.
+
+### 2. Python Environment
+
+Open `lab_2.ipynb` in VS Code or Jupyter and select **Python 3.13** as the notebook kernel.
 
 ### 3. Install Required Libraries
 
-The first code cell installs the libraries required for the notebook:
+Run the first code cell in the notebook. This installs the required Python libraries.
 
-```python
-%pip install -q pandas numpy openpyxl pandera scikit-learn matplotlib mlflow optuna optuna-integration[mlflow]
-```
+After the installation finishes, **restart the Jupyter kernel**.
 
-Run this cell before running the rest of the notebook.
+Make sure **Python 3.13** is still selected after restarting the kernel.
 
-### 4. Restart the Kernel
+### 4. Run the Notebook
 
-After the libraries have finished installing, **restart the Jupyter kernel**.
-
-After restarting, make sure **Python 3.13** is still selected as the kernel.
-
-This step is important because some newly installed libraries may not be correctly available until the kernel has been restarted.
-
-### 5. Run the Notebook
-
-Run all cells from top to bottom.
+After restarting the kernel, run all cells from top to bottom.
 
 The notebook covers the full modelling workflow, including:
 
-- Data loading and inspection
-- Schema validation with Pandera
+- Data loading and validation
 - Data cleaning
 - Feature engineering
 - Exploratory analysis
-- Baseline and linear regression models
-- Cross-validation and model comparison
-- Random Forest hyperparameter optimization
-- Experiment tracking with MLflow
+- Baseline modelling
+- Linear Regression
+- K-Fold Cross-Validation
+- Ridge Regression and Random Forest comparison
+- Hyperparameter tuning
+- MLflow experiment tracking
 - Optuna optimization
 - Model storage
 - Deployment and model drift planning
 
-The final trained pipeline is saved as:
+The notebook will also generate files used for experiment tracking and model storage during execution, including the final trained pipeline:
 
 `best_steel_production_pipeline.joblib`
 
-The saved pipeline includes both the preprocessing steps and the trained model so that the same transformations are applied when the model is loaded again.
+These generated files do not need to be downloaded separately before running the notebook.
